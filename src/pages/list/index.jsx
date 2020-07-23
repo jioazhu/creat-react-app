@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import { oadPosts } from '@/actions/post';
 
 class List extends Component{
@@ -10,18 +11,22 @@ class List extends Component{
 
   componentDidMount(){
     const { dispatch } = this.props;
-    dispatch(oadPosts).then(res=>{console.log(res)})
+    dispatch((dpatch)=>{oadPosts(dpatch,{a:1,B:2})})//.then(res=>{console.log(res)})
   }
 
 
   render(){
     const { list } = this.props;
     return (
-      <ul>
-        {list.map(item=>{
-          return (<li key={item.id}>{item.title}</li>)
-        })}
-      </ul>
+      <div>
+        <Link to='/home'>首页</Link>
+        <ul>
+          {list.map(item=>{
+            return (<li key={item.id}>{item.title}</li>)
+          })}
+        </ul>
+      </div>
+
     )
   }
 }
