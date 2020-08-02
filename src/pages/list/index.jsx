@@ -11,7 +11,9 @@ class List extends Component{
 
   componentDidMount(){
     const { dispatch } = this.props;
-    dispatch((dpatch)=>{oadPosts(dpatch,{a:1,B:2})})//.then(res=>{console.log(res)})
+    
+    dispatch(oadPosts({a:1,B:2})).then(res=>{console.log(res)})
+    // dispatch((dpatch)=>{oadPosts(dpatch,{a:1,B:2})})//.then(res=>{console.log(res)})
   }
 
 
